@@ -1,5 +1,5 @@
 resource "aws_db_subnet_group" "default" {
-  name       = "${var.env}-rds_subnet_group"
+  name       = "${var.env}-rds-subnet-group"
   subnet_ids = var.subnet_ids
 
   tags = merge(local.common_tags, { Name = "${var.env}-rds_subnet_group"} )
@@ -7,8 +7,8 @@ resource "aws_db_subnet_group" "default" {
 }
 
 resource "aws_security_group" "rds" {
-  name        = "${var.env}-rds_security_group"
-  description = "${var.env}-rds_security_group"
+  name        = "${var.env}-rds-security-group"
+  description = "${var.env}-rds-security-group"
   vpc_id      = var.vpc_id
 
   ingress {
