@@ -41,3 +41,8 @@ resource "aws_rds_cluster" "rds" {
   vpc_security_group_ids = [aws_security_group.rds.id]
 
 }
+resource "aws_ssm_parameter" "rds_endpoint" {
+  name  = "${var.env}.rds.ENDPOINT"
+  type  = "String"
+  value = aws_rds_cluster.rds.endpoint
+}
